@@ -1,0 +1,649 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations for the AI Business Panel */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bobble {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-3px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-3px) rotate(-2deg);
+  }
+}
+
+@keyframes speaking {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.5), 0 0 30px rgba(34, 197, 94, 0.3);
+  }
+}
+
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.33);
+    opacity: 1;
+  }
+  40%, 50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.1);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Subtle green-themed shimmer animation */
+@keyframes shimmer-green {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Subtle green border glow animation */
+@keyframes border-glow {
+  0%, 100% {
+    border-color: rgba(34, 197, 94, 0.4);
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.2);
+  }
+  50% {
+    border-color: rgba(34, 197, 94, 0.6);
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.3), 0 0 25px rgba(34, 197, 94, 0.15);
+  }
+}
+
+/* Subtle green border pulse animation */
+@keyframes border-pulse {
+  0%, 100% {
+    border-color: rgba(34, 197, 94, 0.5);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.3);
+  }
+  50% {
+    border-color: rgba(34, 197, 94, 0.7);
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1);
+  }
+}
+
+/* Subtle green accent glow */
+@keyframes green-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(34, 197, 94, 0.5), 0 0 35px rgba(34, 197, 94, 0.3);
+  }
+}
+
+/* Subtle neon green glow for landing page - more uncertain feel */
+@keyframes neon-glow {
+  0%, 100% {
+    box-shadow: 
+      0 0 3px rgba(34, 197, 94, 0.4),
+      0 0 6px rgba(34, 197, 94, 0.3),
+      0 0 9px rgba(34, 197, 94, 0.2),
+      0 0 12px rgba(34, 197, 94, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 6px rgba(34, 197, 94, 0.6),
+      0 0 12px rgba(34, 197, 94, 0.4),
+      0 0 18px rgba(34, 197, 94, 0.3),
+      0 0 24px rgba(34, 197, 94, 0.2),
+      0 0 30px rgba(34, 197, 94, 0.1);
+  }
+}
+
+/* Subtle neon text glow - uncertain feel */
+@keyframes neon-text {
+  0%, 100% {
+    text-shadow: 
+      0 0 3px rgba(34, 197, 94, 0.4),
+      0 0 6px rgba(34, 197, 94, 0.3),
+      0 0 9px rgba(34, 197, 94, 0.2);
+  }
+  50% {
+    text-shadow: 
+      0 0 6px rgba(34, 197, 94, 0.6),
+      0 0 12px rgba(34, 197, 94, 0.4),
+      0 0 18px rgba(34, 197, 94, 0.3),
+      0 0 24px rgba(34, 197, 94, 0.2);
+  }
+}
+
+/* Subtle neon border animation - uncertain feel */
+@keyframes neon-border {
+  0%, 100% {
+    border-color: rgba(34, 197, 94, 0.5);
+    box-shadow: 
+      inset 0 0 5px rgba(34, 197, 94, 0.2),
+      0 0 5px rgba(34, 197, 94, 0.2),
+      0 0 10px rgba(34, 197, 94, 0.15),
+      0 0 15px rgba(34, 197, 94, 0.1);
+  }
+  50% {
+    border-color: rgba(34, 197, 94, 0.7);
+    box-shadow: 
+      inset 0 0 10px rgba(34, 197, 94, 0.3),
+      0 0 10px rgba(34, 197, 94, 0.3),
+      0 0 20px rgba(34, 197, 94, 0.2),
+      0 0 30px rgba(34, 197, 94, 0.15),
+      0 0 40px rgba(34, 197, 94, 0.1);
+  }
+}
+
+/* Flickering effect for uncertainty */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  2% { opacity: 0.8; }
+  4% { opacity: 1; }
+  8% { opacity: 0.9; }
+  10% { opacity: 1; }
+  12% { opacity: 0.7; }
+  14% { opacity: 1; }
+  16% { opacity: 0.95; }
+  18% { opacity: 1; }
+  22% { opacity: 0.85; }
+  24% { opacity: 1; }
+}
+
+/* Text glitch effect */
+@keyframes text-glitch {
+  0%, 90%, 100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, 1px);
+    filter: hue-rotate(90deg);
+  }
+  20% {
+    transform: translate(1px, -1px);
+    filter: hue-rotate(180deg);
+  }
+  30% {
+    transform: translate(-1px, -1px);
+    filter: hue-rotate(270deg);
+  }
+  40% {
+    transform: translate(1px, 1px);
+    filter: hue-rotate(360deg);
+  }
+  50% {
+    transform: translate(-1px, 1px);
+    filter: hue-rotate(45deg);
+  }
+}
+
+/* Random fade out effect */
+@keyframes random-fade {
+  0%, 85%, 100% { opacity: 1; }
+  87% { opacity: 0.3; }
+  89% { opacity: 0.8; }
+  91% { opacity: 0.1; }
+  93% { opacity: 1; }
+}
+
+/* Subtle digital distortion */
+@keyframes digital-distort {
+  0%, 95%, 100% {
+    transform: scaleX(1) scaleY(1);
+    filter: contrast(1);
+  }
+  96% {
+    transform: scaleX(1.02) scaleY(0.98);
+    filter: contrast(1.1);
+  }
+  97% {
+    transform: scaleX(0.98) scaleY(1.02);
+    filter: contrast(0.9);
+  }
+  98% {
+    transform: scaleX(1.01) scaleY(0.99);
+    filter: contrast(1.05);
+  }
+}
+
+/* Letter spacing glitch */
+@keyframes letter-spacing-glitch {
+  0%, 90%, 100% {
+    letter-spacing: normal;
+  }
+  92% {
+    letter-spacing: 2px;
+  }
+  94% {
+    letter-spacing: -1px;
+  }
+  96% {
+    letter-spacing: 1px;
+  }
+}
+
+/* Subtle color shift */
+@keyframes color-shift {
+  0%, 80%, 100% {
+    color: rgba(34, 197, 94, 0.8);
+  }
+  85% {
+    color: rgba(34, 197, 94, 0.6);
+  }
+  90% {
+    color: rgba(34, 197, 94, 0.9);
+  }
+  95% {
+    color: rgba(34, 197, 94, 0.4);
+  }
+}
+
+/* Brief blackout effect */
+@keyframes blackout {
+  0%, 97%, 100% { opacity: 1; }
+  98% { opacity: 0; }
+  99% { opacity: 0.5; }
+}
+
+/* Animation classes */
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-bobble {
+  animation: bobble 0.8s ease-in-out infinite;
+}
+
+.animate-speaking {
+  animation: speaking 0.4s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-typing {
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.animate-slideInLeft {
+  animation: slideInFromLeft 0.6s ease-out forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInFromRight 0.6s ease-out forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.4s ease-out forwards;
+}
+
+.animate-wiggle {
+  animation: wiggle 1s ease-in-out;
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Subtle green-themed animations */
+.animate-shimmer-green {
+  background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.15), transparent);
+  background-size: 200% 100%;
+  animation: shimmer-green 4s infinite;
+}
+
+.animate-border-glow {
+  animation: border-glow 3s ease-in-out infinite;
+}
+
+.animate-border-pulse {
+  animation: border-pulse 3s ease-in-out infinite;
+}
+
+.animate-green-glow {
+  animation: green-glow 3s ease-in-out infinite;
+}
+
+/* Subtle neon animations for landing page */
+.animate-neon-glow {
+  animation: neon-glow 4s ease-in-out infinite;
+}
+
+.animate-neon-text {
+  animation: neon-text 4s ease-in-out infinite;
+}
+
+.animate-neon-border {
+  animation: neon-border 4s ease-in-out infinite;
+}
+
+.animate-flicker {
+  animation: flicker 8s infinite;
+}
+
+/* Glitch and uncertainty animations */
+.animate-text-glitch {
+  animation: text-glitch 12s infinite;
+}
+
+.animate-random-fade {
+  animation: random-fade 15s infinite;
+}
+
+.animate-digital-distort {
+  animation: digital-distort 20s infinite;
+}
+
+.animate-letter-spacing-glitch {
+  animation: letter-spacing-glitch 18s infinite;
+}
+
+.animate-color-shift {
+  animation: color-shift 10s infinite;
+}
+
+.animate-blackout {
+  animation: blackout 25s infinite;
+}
+
+/* Typing indicator animation */
+.typing-indicator span {
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Custom scrollbar styling - Subtle green */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(17, 24, 39, 0.5);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(34, 197, 94, 0.4);
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 197, 94, 0.6);
+}
+
+/* Smooth transitions for all elements */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Focus styles for accessibility - Subtle green theme */
+button:focus-visible,
+textarea:focus-visible,
+input:focus-visible {
+  outline: 2px solid rgba(34, 197, 94, 0.6);
+  outline-offset: 2px;
+}
+
+/* Agent card hover effects - Subtle green accents */
+.agent-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.agent-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+.agent-card.active {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px -10px rgba(34, 197, 94, 0.3);
+}
+
+/* Button hover effects - Subtle green theme */
+.btn-hover {
+  transition: all 0.2s ease;
+}
+
+.btn-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.2);
+}
+
+.btn-hover:active {
+  transform: translateY(0);
+}
+
+/* Glass morphism effect - Darker */
+.glass {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+/* Gradient text effect - Subtle green theme */
+.gradient-text {
+  background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Loading spinner - Subtle green theme */
+.spinner {
+  border: 2px solid rgba(34, 197, 94, 0.2);
+  border-left: 2px solid #22c55e;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive design helpers */
+@media (max-width: 768px) {
+  .mobile-stack {
+    flex-direction: column;
+  }
+  
+  .mobile-full {
+    width: 100%;
+  }
+  
+  .mobile-hide {
+    display: none;
+  }
+}
+
+/* Dark mode enhancements - Charcoal theme */
+@media (prefers-color-scheme: dark) {
+  .auto-dark {
+    background-color: #0c0c0c;
+  }
+}
+
+/* Custom green accent classes */
+.bg-charcoal {
+  background-color: #1a1a1a;
+}
+
+.bg-charcoal-light {
+  background-color: #2a2a2a;
+}
+
+.border-green-glow {
+  border-color: rgba(34, 197, 94, 0.5);
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
+}
+
+.text-green-glow {
+  color: #22c55e;
+  text-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+}
+
+/* Subtle neon green text class */
+.text-neon-green {
+  color: #22c55e;
+  text-shadow: 
+    0 0 3px rgba(34, 197, 94, 0.4),
+    0 0 6px rgba(34, 197, 94, 0.3),
+    0 0 9px rgba(34, 197, 94, 0.2);
+}
